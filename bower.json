@@ -5,11 +5,17 @@
     "modernizr": "~2.8.1",
     "jquery": "^3.2.1",
     "foundation-sites": "^6.4.3",
-    "angular": "^1.6.6"
+    "angular": "^1.6.6",
+    "firebase": "^4.6.1",
+    "angularfire": "^2.3.0"
   },
   "overrides": {},
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^4.0.1"
+  },
+  "resolutions": {
+    "firebase": "^4.6.1",
+    "angular": "^1.6.6"
   }
 }

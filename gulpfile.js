@@ -6,11 +6,20 @@ const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
 const sass = require('gulp-ruby-sass');
+const gulpNgConfig = require('gulp-ng-config');
+const rename = require("gulp-rename");
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 let dev = true;
+
+gulp.task('envConfig', () => {
+  return gulp.src('app/scripts/config/dev.json')
+    .pipe(rename('hospitecnicaAppConstants.json'))
+    .pipe(gulpNgConfig('hospitecnicaApp.config'))
+    .pipe(gulp.dest('app/scripts'));
+});
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/main.sass')

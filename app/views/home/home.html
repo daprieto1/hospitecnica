@@ -1,0 +1,59 @@
+<div id="home" ng-controller="HomeController as vm">
+    <section id="home-section1"></section>
+    <section id="home-section2"></section>
+    <section id="home-section3"></section>
+    <section id="home-section4">
+        <div class="row">
+            <div class="large-12 columns">
+                <h2>Contáctanos</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <form name="contactForm">
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <label for="name">Nombre:</label>
+                        </div>
+                        <div class="large-9 columns">
+                            <input name="name" type="text" ng-model="vm.contact.name">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <label for="email">Email:</label>
+                        </div>
+                        <div class="large-9 columns">
+                            <input name="email" type="email" ng-model="vm.contact.email">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <label for="phone">Telefono:</label>
+                        </div>
+                        <div class="large-9 columns">
+                            <input name="phone" type="text" ng-model="vm.contact.phone">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <label for="message">Mensaje:</label>
+                        </div>
+                        <div class="large-9 columns">
+                            <textarea name="message" rows="5" ng-model="vm.contact.message"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <button ng-click="vm.sendContact()">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
