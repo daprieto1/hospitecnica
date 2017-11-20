@@ -55,5 +55,27 @@
                 </form>
             </div>
         </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Mensage</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="lead in vm.leads">
+                            <td>{{lead.name}}</td>
+                            <td>{{lead.phone}}</td>
+                            <td>{{lead.message}}</td>
+                            <td>{{lead.email}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </section>
 </div>
