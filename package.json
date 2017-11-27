@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "node server.js",
-    "postinstall": "npm install gulp && npm install gulp-load-plugins && gulp && npm install bower && bower install --force && cp -R bower_components dist"
+    "poststart": "npm prune --production",
+    "postinstall": "gulp && npm install bower && bower install --force && cp -R bower_components dist"
   },
   "private": true,
   "engines": {
