@@ -1,0 +1,36 @@
+.reveal.full
+    padding: 0
+    div ng-transclude
+        height: 100%
+#menu
+    height: 100%
+    background-color: #1E3358
+    .row
+        max-width: none
+    #close-button
+        cursor: pointer
+        float: right        
+        width: 225px
+        height: 150px
+        background-color: #ca3236
+        p
+            color: #ffffff
+            font-size: 95px
+            text-align: center
+            margin: 0
+    #items
+        color: #fff
+        font-size: 25px
+        counter-reset: item
+        li
+            display: block            
+            &:before
+                display: inline-block
+                content: "0" counter(item) 
+                counter-increment: item
+                margin-right: 15px
+    #online-pay
+        background-color: #ca3236
+        padding: 30px 75px
+        font-size: 25px
+        margin-top: 75px
