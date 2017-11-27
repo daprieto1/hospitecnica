@@ -8,3 +8,5 @@ app/scripts/hospitecnicaAppConstants.js
 app/scripts/config/dev.json
 app/scripts/config/prod.json
 yarn.lock
+package-lock.json
+
