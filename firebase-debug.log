@@ -1,0 +1,46 @@
+[debug] [2017-11-27T20:54:30.437Z] ----------------------------------------------------------------------
+[debug] [2017-11-27T20:54:30.439Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-11-27T20:54:30.439Z] CLI Version:   3.15.2
+[debug] [2017-11-27T20:54:30.439Z] Platform:      darwin
+[debug] [2017-11-27T20:54:30.439Z] Node Version:  v8.9.1
+[debug] [2017-11-27T20:54:30.440Z] Time:          Mon Nov 27 2017 15:54:30 GMT-0500 (-05)
+[debug] [2017-11-27T20:54:30.440Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-27T20:54:30.453Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-27T20:54:30.453Z] > authorizing via signed-in user
+[debug] [2017-11-27T20:54:30.454Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-27T20:54:30.454Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/eKDPlHsvC0knAGEFxqNFdVx1_w6WDIj0MVLs28Vl2LJ_WGfb0-FlUi5U5o4DXjS4',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon Nov 27 2017 15:54:30 GMT-0500 (-05)
+[debug] [2017-11-27T20:54:30.667Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-27T20:54:30.685Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/hospitecnica-ac87e  
+ Mon Nov 27 2017 15:54:30 GMT-0500 (-05)
+[debug] [2017-11-27T20:54:31.257Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-27T20:54:31.258Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/hospitecnica-ac87e/tokens  
+ Mon Nov 27 2017 15:54:31 GMT-0500 (-05)
+[debug] [2017-11-27T20:54:31.877Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'hospitecnica-ac87e'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2017-11-27T20:54:36.200Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/hospitecnica-ac87e/uploads/-KzzFdVSmMkrScNsyk96?fileCount=24&message=  
+ Mon Nov 27 2017 15:54:36 GMT-0500 (-05)
+[debug] [2017-11-27T20:54:55.094Z] <<< HTTP RESPONSE 409
+[debug] [2017-11-27T20:54:55.094Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2017-11-27T20:54:55.095Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:43:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: An unexpected error has occurred.

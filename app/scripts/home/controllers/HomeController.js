@@ -23,7 +23,7 @@
 
                 vm.leadsFirebaseArray = $firebaseArray(firebase.database().ref().child('leads'));
                 vm.leadsFirebaseArray.$loaded()
-                    .then(leads => vm.leads = leads)
+                    .then(leads => {console.log(leads);vm.leads = leads;})
                     .catch(err => console.log(err));
 
                 vm.contact = {
