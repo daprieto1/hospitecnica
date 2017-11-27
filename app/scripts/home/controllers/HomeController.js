@@ -1,8 +1,14 @@
 (function () {
     'use strict';
     angular.module('homeModule')
-        .controller('HomeController', function ($firebaseArray) {
+        .controller('HomeController', function ($firebaseArray, $location, $anchorScroll) {
             var vm = this;
+
+            vm.scroll = place => {
+                console.log(place);
+                $location.hash(place);
+                $anchorScroll();
+            };
 
             vm.sendContact = () => {
                 console.log(vm.contact);
@@ -27,7 +33,12 @@
                     message: ''
                 }
 
-                vm.sections = ['Introducción', 'Productos', 'Covertura', 'Contactanos'];
+                vm.sections = [
+                    {label:'Introducción',id:'introduction'},
+                    {label:'Productos',id:'products'},
+                    {label:'Cobertura',id:'coverage'},
+                    {label:'Contáctanos',id:'contact-us'}
+                ];
             }
 
             initCtrl();

@@ -1,10 +1,10 @@
 <div id="home" ng-controller="HomeController as vm">
 
     <div id="bar">
-        <div class="row bar-section" ng-repeat="section in vm.sections track by $index">
+        <div class="row bar-section" ng-repeat="section in vm.sections track by $index" ng-click="vm.scroll(section.id)">
             <div class="large-6 columns section-name">
                 <p>
-                    {{section}}
+                    {{section.label}}
                 </p>
             </div>
             <div class="large-2 columns">
@@ -19,12 +19,22 @@
                 </p>
             </div>
         </div>
-
     </div>
 
     <section id="home-section1">
-        <div class="row">
+        <img src="images/logo.png" alt="">
+        <hr>
+        <div class="row" id="introduction">
             <h1>Encuentra aquí soluciones especializadas en cuidados intensivos, cirugía y hospitalización</h1>
+        </div>
+
+    </section>
+
+    <section id="home-section11">
+        <div id="promotion">
+            <p>
+                <strong>Productos en promoción</strong>
+            </p>
         </div>
 
         <div id="home-section1-mix">
@@ -37,12 +47,13 @@
                 <div id="home-section1-mix-4" class="large-6 columns"></div>
             </div>
         </div>
-
     </section>
 
     <section id="home-section2">
-        <div class="row">
-            <h2>Productos</h2>
+        <div class="row" id="products">
+            <h2>
+                <strong>Productos</strong>
+            </h2>
         </div>
         <div id="home-section2-mix">
             <div class="row">
@@ -67,13 +78,19 @@
         </div>
     </section>
 
-    <section id="home-section3"></section>
+    <section id="home-section3">
+        <div class="row" id="coverage">
+            <h2>
+                <strong>Cobertura</strong>
+            </h2>
+        </div>
+    </section>
 
     <section id="home-section4">
-        <div class="row">
-            <div class="large-12 columns">
-                <h2>Contáctanos</h2>
-            </div>
+        <div class="row" id="contact-us">
+            <h2>
+                <strong>Contáctanos</strong>
+            </h2>
         </div>
         <div class="row">
             <div class="large-6 columns">
@@ -116,7 +133,9 @@
 
                     <div class="row">
                         <div class="large-12 columns">
-                            <button ng-click="vm.sendContact()">Enviar</button>
+                            <button class="button" ng-click="vm.sendContact()">
+                                <strong>Enviar</strong>
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -124,8 +143,10 @@
 
             <div class="large-6 columns">
                 <img src="images/home-section3-pay.png" alt="">
-                <h3>Trabaja</h3>
-                <h4>con nosotos</h4>
+                <button id="work-with-us" class="button">
+                    <h3>Trabaja</h3>
+                    <h4>con nosotros</h4>
+                </button>
             </div>
         </div>
         <div class="row">

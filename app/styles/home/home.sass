@@ -1,7 +1,7 @@
 div#home    
     #bar
-        position: absolute
-        right: 0        
+        position: fixed
+        right: 0       
         .line
             width: 7px
             height: 130px
@@ -34,18 +34,51 @@ div#home
             p
                 margin: 0 31px 0 0                
     section#home-section1        
-        background: url("../images/home-section1-background.png")
+        background: url("../images/home-section1-background.jpeg")
         background-size: cover        
         background-position: center
-        min-height: 1082px
-        padding: 140px 0
+        //min-height: 1082px
+        padding: 140px 0 0 0
         .row
             max-width: 720px
+        h1  
+            text-transform: uppercase
+            text-align: center
+            color: #02335c
+            margin: 0 auto 320px auto
+            font-size: 24px
+        img 
+            max-height: 200px
+            max-width: 490px
+            display: block
+            margin: 0 auto
+        hr
+            margin-top: 50px
+            margin-bottom: 50px     
+            color: black
+            max-width: 150px
+            border-bottom: 1px solid black
+    section#home-section11 
+        margin-top: -200px
+        .row
+            max-width: 720px 
+        #promotion
+            position: absolute
+            margin-top: 124px
+            margin-left: 300px
+            width: 360px
+            height: 150px
+            background-color: #CB3236
+            padding: 60px 80px 50px 140px
+            p
+                text-transform: uppercase
+                text-align: center
+                color: #ffffff
         #home-section1-mix            
             .large-6.columns
                 padding: 0
                 margin: 0
-                height: 200px
+                height: 200px            
             #home-section1-mix-1
                 background: url("../images/home-section1-mix-1.jpg")  
                 background-size: cover        
@@ -61,19 +94,13 @@ div#home
             #home-section1-mix-4
                 background: url("../images/home-section1-mix-4.jpg")  
                 background-size: cover        
-                background-position: center   
-        h1  
-            text-transform: uppercase
-            text-align: center
-            color: #02335c
-            margin: 90px auto 110px auto
-            font-size: 24px
+                background-position: center           
     section#home-section2        
         h2
             text-transform: uppercase
             color: #001628
             text-align: center
-            margin: 25px auto 
+            margin: 160px 0 45px 0
         #home-section2-mix
             .row
                 max-width: 1200px
@@ -118,9 +145,15 @@ div#home
                     background: url("../images/home-section2-mix-5.jpg")  
                     background-size: cover        
                     background-position: center  
+    section#home-section3
+        h2
+            text-align: center
+            margin-top: 120px
+            text-transform: uppercase
     section#home-section4                            
         h2
             margin: 45px 0
+            text-transform: uppercase
         form
             padding: 25px 30px
             background-color: #F6F6F7
@@ -132,14 +165,27 @@ div#home
                 border: none
                 box-shadow: none
                 margin-bottom: 10px
+            button.button
+                float: right
+                background-color: #1E3358
         img
             max-width: 245px
             max-height: 135px
             margin: 0 auto 85px auto
-            display: block   
-        h3
-            text-transform: uppercase
-            text-align: center 
-        h4
-            text-transform: uppercase
-            text-align: center 
+            display: block  
+        button#work-with-us
+            display: block
+            margin: 0 auto
+            background-color: #1E3358
+            padding: 16px 40px
+            border-radius: 10px
+            h3
+                text-transform: uppercase
+                text-align: center                 
+                font-size: 25px
+                margin: 0
+            h4
+                text-transform: uppercase
+                text-align: center 
+                font-size: 14px
+                margin: 0

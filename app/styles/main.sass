@@ -3,10 +3,36 @@
 @include foundation-everything
 @include foundation-grid
 
+@font-face
+  font-family: FedraSansStdBold
+  src: url('../fonts/FedraSansStdBold.otf')
+
+@font-face
+  font-family: FedraSansStdLight
+  src: url('../fonts/FedraSansStdLight.otf')
+
+@font-face
+  font-family: FedraSansStdNormal
+  src: url('../fonts/FedraSansStdNormal.otf')
+
 body
   height: 100%
-  margin: 0
-  font-family: 'Montserrat', sans-serif
+  margin: 0  
+  font-family: FedraSansStdLight, FedraSansStdBold, FedraSansStdNormal, sans-serif
+  h1
+    font-family: FedraSansStdLight, FedraSansStdBold, FedraSansStdNormal, sans-serif
+  h2
+    font-family: FedraSansStdLight, FedraSansStdBold, FedraSansStdNormal, sans-serif
+  h3
+    font-family: FedraSansStdLight, FedraSansStdBold, FedraSansStdNormal, sans-serif
+  h4
+    font-family: FedraSansStdLight, FedraSansStdBold, FedraSansStdNormal, sans-serif
+  h5
+    font-family: FedraSansStdLight, FedraSansStdBold, FedraSansStdNormal, sans-serif
+  h6
+    font-family: FedraSansStdLight, FedraSansStdBold, FedraSansStdNormal, sans-serif
+  p
+    font-family: FedraSansStdLight, FedraSansStdBold, FedraSansStdNormal, sans-serif
 
 @import "header"
 @import "footer"
