@@ -2,7 +2,7 @@
   "scripts": {
     "start": "node server.js",
     "poststart": "npm prune --production",
-    "postinstall": "npm install bower && bower install --force && cp -R bower_components dist"
+    "postinstall": "gulp default && npm install bower && bower install --force && cp -R bower_components dist"
   },
   "private": true,
   "engines": {
