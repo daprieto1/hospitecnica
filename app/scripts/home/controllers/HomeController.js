@@ -26,6 +26,8 @@
                     email: '',
                     message: ''
                 }
+
+                vm.sections = ['Introducción', 'Productos', 'Covertura', 'Contactanos'];
             }
 
             initCtrl();

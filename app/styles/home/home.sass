@@ -1,4 +1,38 @@
 div#home    
+    #bar
+        position: absolute
+        right: 0        
+        .line
+            width: 7px
+            height: 130px
+            background-color: #D3D3D3
+        .big-circle
+            width: 30px
+            height: 30px
+            border-radius: 50%
+            background-color: #AF2D33
+            margin-left: -12px
+            padding-top: 6px
+            cursor: pointer
+        .small-circle
+            width: 18px
+            height: 18px
+            border-radius: 50%
+            background-color: #ffffff
+            margin-left: 6px
+            cursor: pointer
+        .section-number
+            margin-top: 130px
+            margin-bottom: 0
+            color: #AF2D33
+        .section-name
+            padding: 0
+            background-color: #D3D3D3
+            margin-right: -10px
+            margin-top: 132px            
+            color: #AF2D33
+            p
+                margin: 0 31px 0 0                
     section#home-section1        
         background: url("../images/home-section1-background.png")
         background-size: cover        
@@ -58,13 +92,16 @@ div#home
                 .large-4
                     padding-top: 140px
                 #home-section2-mix-1
-                    background: url("../images/home-section2-mix-1.jpg")  
+                    background-color: #001628
+                    background: url("../images/home-section2-mix-1.jpg")
                     background-size: cover        
-                    background-position: center  
+                    background-position: center          
+                    background-blend-mode: color-dodge            
                 #home-section2-mix-2
-                    background: url("../images/home-section2-mix-2.jpg")  
+                    background: url("../images/home-section2-mix-2.jpg"), #ff182e
                     background-size: cover        
-                    background-position: center  
+                    background-position: center                      
+                    background-blend-mode: multiply
                 #home-section2-mix-3
                     background: url("../images/home-section2-mix-3.jpg")  
                     background-size: cover        

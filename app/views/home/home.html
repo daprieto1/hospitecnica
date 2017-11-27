@@ -1,5 +1,27 @@
 <div id="home" ng-controller="HomeController as vm">
 
+    <div id="bar">
+        <div class="row bar-section" ng-repeat="section in vm.sections track by $index">
+            <div class="large-6 columns section-name">
+                <p>
+                    {{section}}
+                </p>
+            </div>
+            <div class="large-2 columns">
+                <div class="line"></div>
+                <div class="big-circle">
+                    <div class="small-circle"></div>
+                </div>
+            </div>
+            <div class="large-4 columns">
+                <p class="section-number">
+                    <strong>0{{$index + 1}}</strong>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
     <section id="home-section1">
         <div class="row">
             <h1>Encuentra aquí soluciones especializadas en cuidados intensivos, cirugía y hospitalización</h1>
