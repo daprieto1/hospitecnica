@@ -8,14 +8,27 @@ const runSequence = require('run-sequence');
 const sass = require('gulp-ruby-sass');
 const gulpNgConfig = require('gulp-ng-config');
 const rename = require("gulp-rename");
+const replace = require('gulp-replace-task');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 let dev = true;
+let HOSPITECNICA_FIREBASE_API_KEY = process.env.HOSPITECNICA_FIREBASE_API_KEY;
+let HOSPITECNICA_FIREBASE_AUTH_DOMAIN = process.env.HOSPITECNICA_FIREBASE_AUTH_DOMAIN;
+let HOSPITECNICA_FIREBASE_DATABASE_URL = process.env.HOSPITECNICA_FIREBASE_DATABASE_URL;
+let HOSPITECNICA_FIREBASE_STORAGE_BUCKET = process.env.HOSPITECNICA_FIREBASE_STORAGE_BUCKET;
 
 gulp.task('envConfig', () => {
-  return gulp.src('app/scripts/config/dev.json')
+  return gulp.src('app/scripts/config/env.json')
+    .pipe(replace({
+      patterns: [
+        { match: 'apiKey', replacement: HOSPITECNICA_FIREBASE_API_KEY },
+        { match: 'authDomain', replacement: HOSPITECNICA_FIREBASE_AUTH_DOMAIN },
+        { match: 'databaseURL', replacement: HOSPITECNICA_FIREBASE_DATABASE_URL },
+        { match: 'storageBucket', replacement: HOSPITECNICA_FIREBASE_STORAGE_BUCKET }
+      ]
+    }))    
     .pipe(rename('hospitecnicaAppConstants.json'))
     .pipe(gulpNgConfig('hospitecnicaApp.config'))
     .pipe(gulp.dest('app/scripts'));
@@ -23,17 +36,17 @@ gulp.task('envConfig', () => {
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/main.sass')
-      .pipe($.plumber())
-      .pipe($.sourcemaps.init())
-      .pipe($.sass.sync({
-          outputStyle: 'expanded',
-          precision: 10,
-          includePaths: ['.']
-      }).on('error', $.sass.logError))
-      .pipe($.autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'] }))
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/styles'))
-      .pipe(reload({ stream: true }));
+    .pipe($.plumber())
+    .pipe($.sourcemaps.init())
+    .pipe($.sass.sync({
+      outputStyle: 'expanded',
+      precision: 10,
+      includePaths: ['.']
+    }).on('error', $.sass.logError))
+    .pipe($.autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'] }))
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(reload({ stream: true }));
 });
 
 gulp.task('scripts', () => {
@@ -43,13 +56,13 @@ gulp.task('scripts', () => {
     .pipe($.babel())
     .pipe($.if(dev, $.sourcemaps.write('.')))
     .pipe(gulp.dest('.tmp/scripts'))
-    .pipe(reload({stream: true}));
+    .pipe(reload({ stream: true }));
 });
 
 function lint(files) {
   return gulp.src(files)
     .pipe($.eslint({ fix: true }))
-    .pipe(reload({stream: true, once: true}))
+    .pipe(reload({ stream: true, once: true }))
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
 }
@@ -65,13 +78,13 @@ gulp.task('lint:test', () => {
 
 gulp.task('html', ['styles', 'scripts'], () => {
   return gulp.src('app/*.html')
-    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-    .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
-    .pipe($.if(/\.css$/, $.cssnano({safe: true, autoprefixer: false})))
+    .pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
+    .pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: true } })))
+    .pipe($.if(/\.css$/, $.cssnano({ safe: true, autoprefixer: false })))
     .pipe($.if(/\.html$/, $.htmlmin({
       collapseWhitespace: true,
       minifyCSS: true,
-      minifyJS: {compress: {drop_console: true}},
+      minifyJS: { compress: { drop_console: true } },
       processConditionalComments: true,
       removeComments: true,
       removeEmptyAttributes: true,
@@ -88,7 +101,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('fonts', () => {
-  return gulp.src(require('main-bower-files')('**/*.{otf,eot,svg,ttf,woff,woff2}', function (err) {})
+  return gulp.src(require('main-bower-files')('**/*.{otf,eot,svg,ttf,woff,woff2}', function (err) { })
     .concat('app/fonts/**/*'))
     .pipe($.if(dev, gulp.dest('.tmp/fonts'), gulp.dest('dist/fonts')));
 });
@@ -98,8 +111,8 @@ gulp.task('extras', () => {
     'app/*',
     '!app/*.html'
   ], {
-    dot: true
-  }).pipe(gulp.dest('dist'));
+      dot: true
+    }).pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
@@ -177,8 +190,8 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'envConfig'], () => {
+  return gulp.src('dist/**/*').pipe($.size({ title: 'build', gzip: true }));
 });
 
 gulp.task('default', () => {
