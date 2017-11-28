@@ -28,9 +28,9 @@ gulp.task('envConfig', () => {
         { match: 'databaseURL', replacement: HOSPITECNICA_FIREBASE_DATABASE_URL },
         { match: 'storageBucket', replacement: HOSPITECNICA_FIREBASE_STORAGE_BUCKET }
       ]
-    }))    
+    }))
     .pipe(rename('hospitecnicaAppConstants.json'))
-    .pipe(gulpNgConfig('hospitecnicaApp.config'))
+    .pipe(gulpNgConfig('hospitecnicaApp', { pretty: true, createModule: false, wrap: '(function(){ \'use strict\'; <%= module %>})()' }))
     .pipe(gulp.dest('app/scripts'));
 });
 
@@ -77,9 +77,9 @@ gulp.task('lint:test', () => {
 });
 
 gulp.task('html', ['styles', 'scripts'], () => {
-  return gulp.src('app/*.html')
+  return gulp.src('app/**/*.html')
     .pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
-    .pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: true } })))
+    .pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: true }, beautify: true, mangle: true })))
     .pipe($.if(/\.css$/, $.cssnano({ safe: true, autoprefixer: false })))
     .pipe($.if(/\.html$/, $.htmlmin({
       collapseWhitespace: true,
@@ -182,7 +182,7 @@ gulp.task('wiredep', () => {
     }))
     .pipe(gulp.dest('app/styles'));
 
-  gulp.src('app/*.html')
+  gulp.src('app/**/*.html')
     .pipe(wiredep({
       exclude: ['bootstrap-sass'],
       ignorePath: /^(\.\.\/)*\.\./

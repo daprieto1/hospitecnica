@@ -9,7 +9,8 @@
     "firebase": "^4.6.1",
     "angularfire": "^2.3.0",
     "angular-foundation-6": "^0.11.16",
-    "angular-touch": "^1.6.7"
+    "angular-touch": "^1.6.7",
+    "angular-route": "^1.6.7"
   },
   "overrides": {},
   "devDependencies": {
