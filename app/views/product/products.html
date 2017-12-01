@@ -1,0 +1,37 @@
+<div id="products" ng-controller="ProductsController as vm">
+    <div class="product-header">
+        <h1 class="product-header-title">
+            <strong>Tecnología médica</strong>
+        </h1>
+        <h2 class="product-header-subheader">
+            Ventiladores
+        </h2>
+    </div>
+
+    <div class="row product">
+        <div class="large-12 columns" ng-repeat="product in vm.products">
+            <div class="product-name">
+                <h3>{{product.name}}</h3>
+            </div>
+            <div class="product-body" ng-class="{active : product.active}" back-style="{{product.background}}" back-img-min-height="280px">
+                <div class="product-more-info" ng-click="product.active = true" ng-if="!product.active">
+                    <img src="images/product/products/ic-more-info.svg" alt="">
+                    <p>más información</p>
+                </div>
+                <div class="product-less-info" ng-click="product.active = false" ng-if="product.active">
+                    <img src="images/product/products/ic-less-info.svg" alt="">
+                </div>
+                <div ng-if="product.active">
+                    <label for="brand">
+                        <strong>Marca</strong>
+                        <p>{{product.brand}}</p>
+                    </label>
+                    <label for="description">
+                            <strong>Descripción</strong>
+                            <p>{{product.description}}</p>
+                        </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

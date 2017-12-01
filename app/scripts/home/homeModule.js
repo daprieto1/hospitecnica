@@ -1,4 +1,4 @@
 (function () {
     'use strict';
-    angular.module('homeModule', []);    
+    angular.module('hospitecnicaApp.homeModule', []);    
 })();

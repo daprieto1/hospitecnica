@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('homeModule')
+    angular.module('hospitecnicaApp.homeModule')
         .controller('HomeController', ['$firebaseArray', '$location', '$anchorScroll', function ($firebaseArray, $location, $anchorScroll) {
             var vm = this;
 

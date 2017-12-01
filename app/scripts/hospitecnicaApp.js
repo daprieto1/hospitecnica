@@ -6,7 +6,9 @@
         'ngTouch',
         'mm.foundation',
         'firebase',
-        'homeModule'
+        'hospitecnicaApp.directives',
+        'hospitecnicaApp.homeModule',
+        'hospitecnicaApp.productModule'
     ])
         .config(['FIREBASE_CONFIG', function (FIREBASE_CONFIG) {
             firebase.initializeApp(FIREBASE_CONFIG);
