@@ -5,10 +5,10 @@
             console.log('here');
             function initCtrl() {
                 vm.products = [
-                    { name: "ventilador adulto pediátrico", img: "images/home-section2-mix-1.jpg", description:"This is an important product to monitoring the diseases of the people", brand:'Super Elements S.A.'},
-                    { name: "ventilador adulto pediátrico", img: "images/home-section2-mix-1.jpg" },
-                    { name: "ventilador adulto pediátrico", img: "images/home-section2-mix-1.jpg" },
-                    { name: "ventilador adulto pediátrico", img: "images/home-section2-mix-1.jpg" }
+                    { name: 'ventilador adulto pediátrico', img: 'images/home-section2-mix-1.jpg', description:'This is an important product to monitoring the diseases of the people', brand:'Super Elements S.A.'},
+                    { name: 'ventilador adulto pediátrico', img: 'images/home-section2-mix-1.jpg' },
+                    { name: 'ventilador adulto pediátrico', img: 'images/home-section2-mix-1.jpg' },
+                    { name: 'ventilador adulto pediátrico', img: 'images/home-section2-mix-1.jpg' }
                 ];
                 vm.products.forEach(product => {
                     product.active = false;

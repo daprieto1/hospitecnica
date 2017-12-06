@@ -11,7 +11,7 @@
         'hospitecnicaApp.productModule'
     ])
         .config(['FIREBASE_CONFIG', function (FIREBASE_CONFIG) {
-            firebase.initializeApp(FIREBASE_CONFIG);
+            firebase.initializeApp(FIREBASE_CONFIG);            
         }])
         .run(function () {
         });

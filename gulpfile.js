@@ -23,10 +23,11 @@ gulp.task('envConfig', () => {
   return gulp.src('app/scripts/config/env.json')
     .pipe(replace({
       patterns: [
-        { match: 'apiKey', replacement: HOSPITECNICA_FIREBASE_API_KEY },
+        { match: 'firebaseApiKey', replacement: HOSPITECNICA_FIREBASE_API_KEY },
         { match: 'authDomain', replacement: HOSPITECNICA_FIREBASE_AUTH_DOMAIN },
         { match: 'databaseURL', replacement: HOSPITECNICA_FIREBASE_DATABASE_URL },
-        { match: 'storageBucket', replacement: HOSPITECNICA_FIREBASE_STORAGE_BUCKET }
+        { match: 'storageBucket', replacement: HOSPITECNICA_FIREBASE_STORAGE_BUCKET },
+        { match: 'googleApiKey', replacement: HOSPITECNICA_GOOGLE_API_KEY }
       ]
     }))
     .pipe(rename('hospitecnicaAppConstants.json'))

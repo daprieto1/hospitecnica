@@ -39,8 +39,72 @@
                     { label: 'Cobertura', id: 'coverage' },
                     { label: 'Contáctanos', id: 'contact-us' }
                 ];
+
             }
 
             initCtrl();
-        }]);
+        }])
+        .directive('myMap', function () {
+            // directive link function
+            var link = function (scope, element, attrs) {
+                var map, infoWindow;
+                var markers = [];
+
+                // map config
+                var mapOptions = {
+                    center: new google.maps.LatLng(4.015049, -74.154519),
+                    zoom: 6,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    scrollwheel: false
+                };
+
+                // init the map
+                function initMap() {
+                    if (map === void 0) {
+                        map = new google.maps.Map(element[0], mapOptions);
+                    }
+                }
+
+                // place a marker
+                function setMarker(map, position, title, content) {
+                    var marker;
+                    var markerOptions = {
+                        position: position,
+                        map: map,
+                        title: title,
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
+                    };
+
+                    marker = new google.maps.Marker(markerOptions);
+                    markers.push(marker); // add marker to array
+
+                    google.maps.event.addListener(marker, 'click', function () {
+                        // close window if not undefined
+                        if (infoWindow !== void 0) {
+                            infoWindow.close();
+                        }
+                        // create new window
+                        var infoWindowOptions = {
+                            content: content
+                        };
+                        infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+                        infoWindow.open(map, marker);
+                    });
+                }
+
+                // show the map and place some markers
+                initMap();
+
+                setMarker(map, new google.maps.LatLng(4.739434, -74.045691), 'Oficina Principal', 'Calle 67 # 56 - 56');
+                setMarker(map, new google.maps.LatLng(7.119545, -73.118216), 'Oficina Secundaria', 'Calle 67 # 56 - 56');
+                setMarker(map, new google.maps.LatLng(3.423850, -76.518456), 'Oficina Tercera', 'Calle 67 # 56 - 56');
+            };
+
+            return {
+                restrict: 'A',
+                template: `<div id="coverage-map" class="large-12 columns"></div>`,
+                replace: true,
+                link: link
+            };
+        });;
 })();
