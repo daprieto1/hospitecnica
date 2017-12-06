@@ -5,7 +5,7 @@
         .controller('HeaderController', ['$scope', '$modal', function ($scope, $modal) {
             var vm = this;
 
-            vm.openMenu = () => {
+            vm.openMenu = () => {                
                 var params = {
                     size: 'full',
                     templateUrl: 'views/menu.html',
