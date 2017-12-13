@@ -105,11 +105,14 @@ div#home
         #home-section2-mix
             .row
                 max-width: 1200px
-                .large-12.columns
-                    max-height: 260px
-                    padding: 115px 0  
-                    margin: 0    
-                    .product                
+                .product                                                              
+                    .product-title   
+                        max-height: 260px
+                        padding: 115px 0  
+                        margin: 0  
+                        &.active
+                            padding: 30px 0
+                            max-height: 90px            
                         h3
                             color: #ffffff                            
                             font-size: 30px
@@ -118,7 +121,18 @@ div#home
                             font-weight: 600      
                         img
                             width: 40px
-                            cursor: pointer                                                                                                            
+                            cursor: pointer 
+                    .product-internals
+                        margin-bottom: 30px
+                        .product-internal
+                            background-color: #F2F3F4   
+                            padding: 25px 0
+                            margin-top: 22px
+                            p
+                                font-size: 25px
+                                color: #293657
+                                margin: 0 auto    
+                                text-align: center                                                                                                 
                 #home-section2-mix-1
                     background-color: #001628
                     background: url("../images/home-section2-mix-1.jpg")

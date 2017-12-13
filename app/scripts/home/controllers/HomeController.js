@@ -40,6 +40,14 @@
                     { label: 'Contáctanos', id: 'contact-us' }
                 ];
 
+                vm.products = [
+                    { name: 'Tecnología Hospitalaria', internalProducts: [{ name: 'Ventiladores' }, { name: 'Monitores' }, { name: 'Electrobisturí' }, { name: 'Electrocardíografos' }, { name: 'Tomosíntesis 3dD' }, { name: 'Vacuómetros' }, { name: 'Flujómetros' }] },
+                    { name: 'Arquitectura Hospitalaria', internalProducts: [{ name: 'Ventiladores' }, { name: 'Monitores' }, { name: 'Electrobisturí' }, { name: 'Electrocardíografos' }, { name: 'Tomosíntesis 3dD' }, { name: 'Vacuómetros' }, { name: 'Flujómetros' }] },
+                    { name: 'Consumo', internalProducts: [{ name: 'Ventiladores' }, { name: 'Monitores' }, { name: 'Electrobisturí' }, { name: 'Electrocardíografos' }, { name: 'Tomosíntesis 3dD' }, { name: 'Vacuómetros' }, { name: 'Flujómetros' }] },
+                    { name: 'Accesorios', internalProducts: [{ name: 'Ventiladores' }, { name: 'Monitores' }, { name: 'Electrobisturí' }, { name: 'Electrocardíografos' }, { name: 'Tomosíntesis 3dD' }, { name: 'Vacuómetros' }, { name: 'Flujómetros' }] },
+                    { name: 'Renta', internalProducts: [{ name: 'Ventiladores' }, { name: 'Monitores' }, { name: 'Electrobisturí' }, { name: 'Electrocardíografos' }, { name: 'Tomosíntesis 3dD' }, { name: 'Vacuómetros' }, { name: 'Flujómetros' }] }
+                ];
+
             }
 
             initCtrl();
