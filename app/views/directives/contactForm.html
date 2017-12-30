@@ -1,0 +1,45 @@
+<form name="contactForm">
+    <div class="row">
+        <div class="large-3 columns">
+            <label for="name">Nombre:</label>
+        </div>
+        <div class="large-9 columns">
+            <input name="name" type="text" ng-model="contact.name" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-3 columns">
+            <label for="email">Email:</label>
+        </div>
+        <div class="large-9 columns">
+            <input name="email" type="email" ng-model="contact.email" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-3 columns">
+            <label for="phone">Telefono:</label>
+        </div>
+        <div class="large-9 columns">
+            <input name="phone" type="text" ng-model="contact.phone" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-3 columns">
+            <label for="message">Mensaje:</label>
+        </div>
+        <div class="large-9 columns">
+            <textarea name="message" rows="5" ng-model="contact.message" required></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <button class="button" ng-click="sendContact()" ng-disabled="contactForm.$invalid">
+                <strong>Enviar</strong>
+            </button>
+        </div>
+    </div>
+</form>
