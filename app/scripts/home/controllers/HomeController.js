@@ -110,7 +110,7 @@
 
             return {
                 restrict: 'A',
-                template: `<div id="coverage-map" class="large-12 columns"></div>`,
+                template: '<div id="coverage-map" class="large-12 columns"></div>',
                 replace: true,
                 link: link
             };

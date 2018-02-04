@@ -1,12 +1,69 @@
 <div id="products" ng-controller="ProductsController as vm">
+
     <div class="product-header">
-        <h1 class="product-header-title">
-            <strong>Tecnología médica</strong>
-        </h1>
-        <h2 class="product-header-subheader">
-            Ventiladores
-        </h2>
+        <div class="row">
+            <div class="large-12 columns">
+                <ul class="breadcrumbs">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <span class="show-for-sr">Current: </span> Productos
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <h1>Productos</h1>
+            </div>
+        </div>
     </div>
+
+    <div class="row">
+        <div class="large-4 columns">
+            <div id="product-menu">
+                <div class="category" ng-repeat="category in vm.categories track by $index">
+                    <div class="row">
+                        <div class="large-11 columns">
+                            <p>
+                                <strong>{{category.name}}</strong>
+                            </p>
+                        </div>
+                        <div class="ic-add large-1 columns">
+                            <img src="images/home/ic-add.svg" alt="" ng-click="category.selected = true" ng-hide="category.selected">
+                            <img src="images/home/ic-less.svg" alt="" ng-click="category.selected = false" ng-show="category.selected">
+                        </div>
+                    </div>
+
+                    <div class="sub-category" ng-if="category.selected">
+                        <div class="row" ng-repeat="subcategory in category.subcategories track by $index">
+                            <div class="large-12 columns">
+                                <p>
+                                    <strong>{{subcategory.name}}</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="large-8 columns">
+
+            <div id="categories" class="row">
+                <div class="large-6 columns" ng-repeat="category in vm.categories track by $index">
+                    <div class="category" back-style="{{category.background}}">
+                        <p>
+                            <strong>{{category.name}}</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--
+    
 
     <div class="row product">
         <div class="large-12 columns" ng-repeat="product in vm.products">
@@ -34,4 +91,5 @@
             </div>
         </div>
     </div>
+-->
 </div>
